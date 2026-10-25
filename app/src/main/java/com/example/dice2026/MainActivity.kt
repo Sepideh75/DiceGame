@@ -155,12 +155,10 @@ fun DiceGameScreen() {
         AlertDialog(
             onDismissRequest = { },
             title = { Text("🏆 ${NAMES[winner]} Wins!") },
-            text = { Text("Reached ${scores[winner]} points.") },
             confirmButton = { Button(onClick = { newGame() }) { Text("Play Again") } }
         )
     }
 }
-
 @Composable
 fun GameBoard(board: List<Int>, positions: List<Int>, dieIndex: Int, rotation: Float) {
     BoxWithConstraints(Modifier.fillMaxWidth().aspectRatio(1f)) {
@@ -176,7 +174,6 @@ fun GameBoard(board: List<Int>, positions: List<Int>, dieIndex: Int, rotation: F
         Dice(dieIndex, rotation, Modifier.offset(cell, cell).size(cell * 2).padding(12.dp))
     }
 }
-
 @Composable
 fun Tile(index: Int, value: Int, players: List<Int>, modifier: Modifier) {
     Box(
